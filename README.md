@@ -39,9 +39,9 @@ The platform provides three distinct access levels:
 
 | | |
 |---|---|
-| ![Home page](web-internship-platform/public/assets/images/hero-image.jpg) | ![Internship offers](web-internship-platform/public/assets/images/offres.jpg) |
+| ![Home page](web-internship-platform/public/assets/images/hero-image.png) | ![Internship offers](web-internship-platform/public/assets/images/offres.png) |
 | *Home page* | *Internship offer listings* |
-| ![Companies](web-internship-platform/public/assets/images/entreprises-transparentes.jpg) | ![Application tracking](web-internship-platform/public/assets/images/suivi-candidature.jpg) |
+| ![Companies](web-internship-platform/public/assets/images/entreprises-transparentes.png) | ![Application tracking](web-internship-platform/public/assets/images/suivi-candidature.png) |
 | *Company profiles* | *Application tracking* |
 
 ---
