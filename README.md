@@ -35,17 +35,6 @@ The platform provides three distinct access levels:
 
 ---
 
-## 📸 Screenshots
-
-| | |
-|---|---|
-| ![Home page](web-internship-platform/public/assets/images/hero-image.png) | ![Internship offers](web-internship-platform/public/assets/images/offres.png) |
-| *Home page* | *Internship offer listings* |
-| ![Companies](web-internship-platform/public/assets/images/entreprises-transparentes.png) | ![Application tracking](web-internship-platform/public/assets/images/suivi-candidature.png) |
-| *Company profiles* | *Application tracking* |
-
----
-
 ## ✨ Features
 
 ### Internship Offer Management
