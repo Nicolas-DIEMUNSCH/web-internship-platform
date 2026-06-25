@@ -83,7 +83,10 @@ mysql -u root -p < database/schema.sql
 
 | Name | Role |
 |------|------|
-| *(to be filled)* | *(to be filled)* |
+|DIEMUNSCH Nicolas (myself)|Developer|
+|BECHE Romain|Product Owner|
+|LAMBERT Pierre|Scrum Master|
+|GULLY Charles|Developer|
 
 ---
 
