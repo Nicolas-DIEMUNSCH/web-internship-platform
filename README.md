@@ -217,8 +217,6 @@ DB_USER=root
 DB_PASSWORD=your_password
 ```
 
-> ⚠️ The `.env` file is excluded from Git. **Never commit your database credentials.**
-
 ---
 
 ## 🚀 Running the Project
