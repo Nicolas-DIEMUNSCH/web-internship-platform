@@ -1,0 +1,71 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Mes élèves – Web4All{% endblock %}
+
+{% block content %}
+<main class="my-students-page">
+
+    <section class="my-students-header" aria-labelledby="mes-eleves-title">
+
+        <h1 class="title fade-in">Mes élèves</h1>
+
+        <div class="search-row">
+    
+        <form method="GET" action="" role="search" class="search-wrapper">
+            <div class="search-bar" >
+    
+            <input type="text" id="search-input" name="q" class="search__input" placeholder="Rechercher..." value="{{ searchQuery ?? '' }}">
+            <input type="hidden" name="page" value="mes-eleves">
+            {% if searchQuery %}
+            <a href="?page=mes-eleves" class="search__button" aria-label="Effacer la recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg>
+            </a>
+            {% else %}
+            <button class="search__button" aria-label="Lancer la recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </button>
+            {% endif %}
+    
+            </div>
+        </form>
+    
+        </div>
+
+    </section>
+    
+    <a href="?page=mes-eleves-creation" class="btn btn-primary">+ Ajouter un étudiant</a>
+
+    {% if eleves is empty %}
+        <p>Vous n'avez pas encore d'élèves.</p>
+    {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for eleve in eleves %}
+                <tr>
+                    <td>{{ eleve.nom }}</td>
+                    <td>{{ eleve.prenom }}</td>
+                    <td>{{ eleve.email_publique }}</td>
+                    <td>
+                        <a href="?page=mes-eleves-detail&id={{ eleve.id_compte }}" class="btn btn-secondary">
+                            Voir les candidatures
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</main>
+{% endblock %}

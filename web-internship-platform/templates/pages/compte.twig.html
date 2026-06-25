@@ -1,0 +1,50 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Mon compte — Web4All{% endblock %}
+
+{% block content %}
+<main class="page-wrapper">
+
+
+  <section class="profile-header" aria-labelledby="profile-name">
+
+    <div>
+      <h1 id="profile-name" class="profile-name">{{ user_nom }} {{ user_prenom }}</h1>
+      <p class="profile-role">{{ user_role|capitalize }}</p>
+    </div>
+
+    <div class="profile-avatar" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+      </svg>
+    </div>
+
+  </section>
+
+
+  <nav class="account-menu" aria-label="Menu du compte">
+
+    {# Commun à tous les rôles #}
+    <a href="?page=modification-compte" class="account-menu-item">Mes informations</a>
+
+    {# Spécifique étudiant #}
+    {% if user_role == 'etudiant' %}
+      <a href="?page=mes-candidatures" class="account-menu-item">Mes candidatures</a>
+    {% endif %}
+
+    {% if user_role == 'pilote' %}
+    <a href="?page=mes-eleves" class="account-menu-item">Mes élèves</a>
+    <a href="?page=gestion-eleves" class="account-menu-item">Gérer mes élèves</a>
+    <a href="?page=entreprises-gestion" class="account-menu-item">Entreprises</a>
+    <a href="?page=mes-annonces" class="account-menu-item">Mes annonces</a>
+{% endif %}
+
+    {# Commun à tous les rôles #}
+    <a href="?page=deconnexion" class="account-menu-item danger">Déconnexion</a>
+    <a href="?page=suppression-compte-1" class="account-menu-item danger">Supprimer ce compte</a>
+
+  </nav>
+
+
+</main>
+{% endblock %}

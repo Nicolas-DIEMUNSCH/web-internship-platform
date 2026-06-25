@@ -1,0 +1,70 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Candidatures de {{ eleve.prenom }} {{ eleve.nom }} – Web4All{% endblock %}
+
+{% block content %}
+<main class="my-student-page">
+
+
+    <div class="my-student-header">
+        <h1 class="title my-student-title fade-in">{{ eleve.nom }} {{ eleve.prenom }} </h1>
+        <p>{{ eleve.email_publique }}</p>
+    </div>
+
+    {% if candidatures is empty %}
+        <p>Cet étudiant n'a pas encore postulé à une annonce.</p>
+    {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Offre</th>
+                    <th>Lieu</th>
+                    <th>Type</th>
+                    <th>Durée</th>
+                    <th>Date début</th>
+                    <th>CV</th>
+                    <th>Lettre de motivation</th>
+                    <th>Portfolio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for candidature in candidatures %}
+                <tr>
+                    <td>{{ candidature.titre }}</td>
+                    <td>{{ candidature.lieu }}</td>
+                    <td>{{ candidature.type }}</td>
+                    <td>{{ candidature.duree }}</td>
+                    <td>{{ candidature.date_debut }}</td>
+                    <td>
+                        
+                        {% if candidature.cv %}
+                            <a href="{{ candidature.cv }}" target="_blank" class="btn btn-primary">
+                                Consulter le CV
+                            </a>
+                        {% else %}
+                            <p class="text-muted">—</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if candidature.lettre %}
+                            <a href="{{ candidature.lettre }}" target="_blank" class="btn btn-primary">
+                                Consulter la lettre
+                            </a>
+                        {% else %}
+                            <p class="text-muted">—</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if candidature.portfolio %}
+                            <a href="{{ candidature.portfolio }}" target="_blank">Voir Portfolio</a>
+                        {% else %}
+                            <p class="text-muted">—</p>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Connexion – Web4All{% endblock %}
+
+{% block head %}
+<style>
+    .login-wrapper {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+
+    .login-card {
+        background: #ffffff;
+        border: 1.5px solid #e0e0f0;
+        border-radius: 16px;
+        padding: 2rem;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 4px 24px rgba(99, 91, 255, 0.07);
+    }
+
+    .login-form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .login-form-group label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 0.4rem;
+    }
+
+    .login-form-group input {
+        width: 100%;
+        padding: 0.65rem 0.9rem;
+        border: 1.5px solid #ddd;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+        background: #fafafa;
+    }
+
+    .login-form-group input:focus {
+        outline: none;
+        border-color: #635bff;
+        background: #fff;
+    }
+
+    .login-remember {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+
+    .login-remember span {
+        font-size: 0.875rem;
+        color: #555;
+    }
+
+    .toggle-switch {
+        position: relative;
+        width: 44px;
+        height: 24px;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        inset: 0;
+        background: #ccc;
+        border-radius: 24px;
+        transition: background 0.2s;
+    }
+
+    .toggle-slider::before {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 3px;
+        top: 3px;
+        background: white;
+        border-radius: 50%;
+        transition: transform 0.2s;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+        background: #635bff;
+    }
+
+    .toggle-switch input:checked + .toggle-slider::before {
+        transform: translateX(20px);
+    }
+
+    .login-actions {
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-alert {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .login-alert-error {
+        background: #fff0f0;
+        color: #c0392b;
+        border: 1px solid #fcc;
+    }
+
+    .login-alert-success {
+        background: #f0fff4;
+        color: #27ae60;
+        border: 1px solid #b2f2c9;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-card">
+
+        {% if error %}
+        <div class="login-alert login-alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg>
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if success %}
+        <div class="login-alert login-alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            {{ success }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/?page=login">
+            <div class="login-form-group">
+                <label for="email">Adresse mail</label>
+                <input type="email" id="email" name="email"
+                    value="{{ email|default('') }}" required autocomplete="email">
+            </div>
+            <div class="login-form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password"
+                    required autocomplete="current-password">
+            </div>
+            <div class="login-remember">
+                <span>Rester connecté-e</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" name="remember">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="login-actions">
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="js/verifyLogin.js">
+    function switchTab(tab, btn) {
+        document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + tab).classList.add('active');
+    }
+</script>
+{% endblock %}
