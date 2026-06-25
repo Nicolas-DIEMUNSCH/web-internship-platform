@@ -1,0 +1,28 @@
+# Environment variables (sensitive)
+.env
+
+# PHP dependencies
+/vendor/
+
+# JS dependencies
+/node_modules/
+
+# Twig cache
+/cache/
+
+# Logs
+*.log
+/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Compiled assets
+*.min.css
+*.min.js
