@@ -1,115 +1,92 @@
-# 🎓 StageFinder — Internship Management Platform
+# StageFinder 🚀
 
-> School project completed as part of the Web Development module — CESI (2024-2025)
+**The internship platform built by students, for students.**
 
----
+Finding an internship is already stressful enough — StageFinder makes the search part
+a little easier. Browse offers, apply in a few clicks, and track everything in one place.
 
-## 📌 Description
-
-StageFinder is a web application designed to help students find internship offers,
-allow promotion supervisors to monitor their students' applications, and give
-administrators full control over the platform.
+> School project — CESI Web Development module (2024-2025)  
+> Built by a team of 4 using Scrum methodology.
 
 ---
 
-## 🎯 Context & Goals
+## What does it do?
 
-This project was built in a team of 4 students, following a **Scrum methodology**
-throughout the school module.
+StageFinder connects three types of users on a single platform:
 
-**Fictional client:** CESI  
-**Fictional contractor:** Web4All  
-**Duration:** Full module block
-
----
-
-## ✨ Key Features
-
-### 👤 Access Management
-- Secure authentication (email / hashed password)
-- 3 user roles: Administrator, Promotion Supervisor, Student
-- Role-based permission system
-
-### 🏢 Company Management
-- Search, create, edit, and delete company profiles
-- Students can rate companies
-
-### 📋 Internship Offer Management
-- Multi-criteria search (skills, company, salary...)
-- Create / edit / delete offers
-- Statistics dashboard: key indicators carousel
-
-### 📬 Applications
-- Apply to an offer with a CV and cover letter
-- Students and supervisors can track application statuses
-
-### ❤️ Wish-list
-- Add / remove offers from a personal favorites list
-
-### ⚙️ General
-- Pagination on all lists
-- Responsive design (mobile-first, burger menu)
-- Legal notices compliant with French regulations
+- 🎓 **Students** — Search offers by skills, wishlist the best ones, and apply directly with their CV and cover letter
+- 👨‍🏫 **Supervisors** — Keep an eye on their students' applications and company ratings
+- 🔐 **Admins** — Full control over users, companies, and offers
 
 ---
 
-## 🛠️ Tech Stack
+## Features at a glance
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | HTML5 / CSS3 / JavaScript |
-| Backend | PHP (OOP, MVC architecture) |
-| Database | MySQL |
-| Server | Apache |
-| Template Engine | *(to be filled)* |
-| Unit Tests | PHPUnit |
+| Area | What's included |
+|------|----------------|
+| 🔑 Auth | Login/logout, role-based access (Admin / Supervisor / Student) |
+| 🏢 Companies | Browse, create, edit, delete & rate companies |
+| 📋 Offers | Search by skills or company, full CRUD, stats carousel |
+| 📬 Applications | Apply with CV + cover letter, track your history |
+| ❤️ Wish-list | Save interesting offers for later |
+| 📱 Responsive | Mobile-first, burger menu, works on any screen |
 
 ---
 
-## 🏗️ Project Architecture (MVC)
+## Tech Stack
+
+Frontend → HTML5 / CSS3 / JavaScript
+Backend → PHP (OOP, MVC architecture)
+Database → MySQL
+Server → Apache
+Tests → PHPUnit
+
+---
+
+## Project Structure
 
 /
 ├── controllers/ # Business logic
-├── models/ # Database access layer
+├── models/ # Database layer
 ├── views/ # HTML templates
-├── public/ # Static files (CSS, JS, images)
-├── config/ # Configuration files (not committed)
+├── public/ # CSS, JS, images
+├── config/ # Local config (not committed — see config.example.php)
 └── tests/ # PHPUnit test files
 
 ---
 
-## 🚀 Local Setup
+## Getting started locally
 
 ```bash
-# 1. Clone the repository
+# Clone the repo
 git clone https://github.com/YOUR_USERNAME/stagefinder.git
 
-# 2. Set up the database config
+# Set up your local config
 cp config/config.example.php config/config.php
-# → Edit config.php with your local credentials
+# → Fill in your database credentials
 
-# 3. Import the database schema
+# Import the database
 mysql -u root -p < database/schema.sql
 
-# 4. Start via a local Apache server (XAMPP, WAMP, Laragon...)
+# Fire up Apache (XAMPP, WAMP, Laragon...) and you're good to go 🎉
 ```
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-*(To be added)*
+*(Coming soon)*
 
 ---
 
-## 👥 Team
+## Team
 
-| Name | Scrum Role |
-|------|------------|
+| Name | Role |
+|------|------|
 | *(to be filled)* | *(to be filled)* |
 
 ---
 
-## 📄 License
+## License
 
-Educational project — CESI 2024-2025. Not intended for commercial use.
+Educational project — CESI 2024-2025. Not for commercial use.
